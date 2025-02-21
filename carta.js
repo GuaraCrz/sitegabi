@@ -11,14 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
         mensagemElemento.textContent = "Você tem uma nova mensagem!"; // Oculta o conteúdo real
     }
 
-    // Salvar mensagem no localStorage
+    // Enviar mensagem para o Google Apps Script
     botaoSalvar.addEventListener("click", function () {
         const mensagem = inputTexto.value.trim();
         if (mensagem !== "") {
-            localStorage.setItem("mensagemNaoLida", mensagem); // Armazena a mensagem
-            inputTexto.value = ""; // Limpa o campo
-            notificacao.style.display = "block"; // Mostra a notificação
-            mensagemElemento.textContent = "Você tem uma nova mensagem!"; // Mantém oculto
+            // Enviar para o Google Apps Script (substitua pela URL do seu Apps Script)
+            fetch("https://script.google.com/macros/s/AKfycbx_LIGKhb3EfR2jyFdHwhYWF5FfNGqMzgUuNyj2sNJNoFhWoPisRUTjXZ_IVxukurXO/exec", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: mensagem }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                localStorage.setItem("mensagemNaoLida", mensagem); // Armazena a mensagem
+                inputTexto.value = ""; // Limpa o campo
+                notificacao.style.display = "block"; // Mostra a notificação
+                mensagemElemento.textContent = "Você tem uma nova mensagem!"; // Oculta o conteúdo real
+            })
+            .catch(error => {
+                alert("Erro ao enviar a mensagem. Tente novamente.");
+            });
         } else {
             alert("Não vai escrever nadinha? :(");
         }
