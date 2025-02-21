@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const mensagem = inputTexto.value.trim();
         if (mensagem !== "") {
             // Enviar para o Google Apps Script
-            fetch("https://script.google.com/macros/s/AKfycbx0PBgg4IGxs-XUEIk039JcsQCthd_3XFPtihE4A6sRAA-tiBUEsmHabNdYAbiRfs5_/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbx_LIGKhb3EfR2jyFdHwhYWF5FfNGqMzgUuNyj2sNJNoFhWoPisRUTjXZ_IVxukurXO/exec", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
