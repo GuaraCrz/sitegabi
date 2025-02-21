@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     botaoSalvar.addEventListener("click", function () {
         const mensagem = inputTexto.value.trim();
         if (mensagem !== "") {
-            // Enviar para o Google Apps Script (substitua pela URL do seu Apps Script)
+            // Enviar para o Google Apps Script
             fetch("https://script.google.com/macros/s/AKfycbx0PBgg4IGxs-XUEIk039JcsQCthd_3XFPtihE4A6sRAA-tiBUEsmHabNdYAbiRfs5_/exec", {
                 method: "POST",
                 headers: {
@@ -23,14 +23,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 body: JSON.stringify({ message: mensagem }),
             })
-            .then(response => response.json())
+            .then(response => {
+                // Tente obter a resposta como texto
+                return response.text();  // Use .text() para capturar qualquer tipo de resposta
+            })
             .then(data => {
+                // Se o Google Apps Script enviar uma resposta em texto, mostre-a
+                console.log("Resposta do servidor:", data);
                 localStorage.setItem("mensagemNaoLida", mensagem); // Armazena a mensagem
                 inputTexto.value = ""; // Limpa o campo
                 notificacao.style.display = "block"; // Mostra a notificação
                 mensagemElemento.textContent = "Você tem uma nova mensagem!"; // Oculta o conteúdo real
             })
             .catch(error => {
+                console.error("Erro ao enviar a mensagem:", error);
                 alert("Erro ao enviar a mensagem. Tente novamente.");
             });
         } else {
