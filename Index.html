@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--ESSA É A PRIMEIRA PAGINA-->
+<!--Um dia quando formos fodas nisso, vamos realmente criar algo legal aqui, que simbolize evolução-->
+<html lang="en">
+  <head>
+    <!--Metadata-->
+    <title>Oi mundo!</title>
+    <meta charset="UTF-8" />
+    <meta name="Site para Gabriella" content="HTML" />
+    <meta name="autor" content="Cruz" />
+    <meta name="viewport" content="width=device" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cursor.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!--Titulo-->
+    <section class="titulo">
+      <h1 style="text-align: center">
+        <img src="Imagens/naruto.png" width="50" height="50" />
+        <em>Somente Para Gabriellita sensei</em>
+        <img src="Imagens/naruto.png" width="50" height="50" />
+      </h1>
+      <br />
+      <hr />
+    </section>
+    <!--Espaço para foto gatinho e direcionamento para pagina 2 através da foto-->
+    <!--Texto-->
+    <section class="foto-link">
+      <div style="text-align: center">
+        <em style="font-size: xx-large">Aqui clica no gatinho</em>
+        <br /><br />
+        <!--Video gato link-->
+        <a href="#" onclick="trocarimagem();mostrarcamposenha(); return false;">
+          <video loop muted autoplay id="gatinho" height="300" width="300">
+            <source src="Imagens/gato.mp4" type="video/mp4" />
+          </video>
+        </a>
+      </div>
+    </section>
+    <!--Formulário para senha e botões -->
+    <div
+      id="senha-container"
+      style="display: none; text-align: center; margin-top: 20px"
+    >
+      <p>Calma lá! Só a Kunoichi Gabriella pode acessar esse site.</p>
+      <input
+        type="password"
+        id="senha"
+        placeholder="Senha aqui"
+        maxlength="6"
+        required
+      />
+      <button onclick="verificarsenha()">Entrar</button>
+    </div>
+    <!--audio da pagina-->
+    <section class="audio">
+      <audio muted autoplay loop>
+        <source src="Sons/konoha.mp3" type="audio/mp3" />
+      </audio>
+    </section>
+  </body>
+</html>

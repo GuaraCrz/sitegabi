@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cartas</title>
+    <link rel="stylesheet" href="carta.css" />
+    <link rel="stylesheet" href="cursor.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+<body>
+    <!-- BANNER DA PUCCA COM TITULO-->
+    <div class="banner">
+      <a href="Links.html" target="_self">
+        <img class="emoji" src="Imagens/link.png" alt="Links" />
+      </a>
+      <a href="Index.html">
+        <img class="emoji2" src="Imagens/home.png" alt="Links" />
+      </a>
+
+      <video
+        autoplay
+        muted
+        loop
+        src="Imagens/pucca-x-garu-pucca-x-garu-kiss.mp4"
+      ></video>
+      <h1>Cartas</h1>
+    </div>
+
+    <hr />
+    <!--ESPAÇO PARA CARTA E TEXTO-->
+    <form>
+      <div>
+        <h1>Na aldeia do rio, existe um shinobi, quer dizer algo a ele ?</h1>
+          <input
+            type="text"
+            id="texto"
+            name="texto"
+            placeholder="Clique na cartinha para enviar!"
+          />
+          <button
+          type="button" id="save-message">
+          <img   src="Imagens/love-letter.png" alt="enviar">
+          </button>
+      </div>
+    </form>
+
+    <!--NOTIFICAÇAO-->
+    <div id="notif" class="notif">
+        <p id="mensagem">Hmm uma nova mensagem !</p>
+        <button id="close-notification">Okay!!</button>
+    </div>
+    <script src="carta.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+  font-family: "Kaushan Script", serif;
+  cursor: pointer;
+}
+
+<!--INTERFACE DA SENHA-- > #senha-container {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body {
+  background-color: brown;
+}
+button {
+  background-color: #30190a;
+  color: whitesmoke;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.6 ease-in-out;
+}
+button:hover {
+  background-color: #ff1100;
+}
+video {
+  max-width: 100%;
+  width: 90%;
+}
