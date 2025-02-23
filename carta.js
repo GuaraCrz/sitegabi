@@ -24,21 +24,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: JSON.stringify({ message: mensagem }),
             })
             .then(response => {
-                // Tente obter a resposta como texto
-                return response.text();  // Use .text() para capturar qualquer tipo de resposta
+                if (!response.ok) {
+                    throw new Error('Erro na resposta do servidor');
+                }
+                return response.text();
             })
             .then(data => {
-                // Se o Google Apps Script enviar uma resposta em texto, mostre-a
                 console.log("Resposta do servidor:", data);
-                localStorage.setItem("mensagemNaoLida", mensagem); // Armazena a mensagem
-                inputTexto.value = ""; // Limpa o campo
-                notificacao.style.display = "block"; // Mostra a notificação
-                mensagemElemento.textContent = "Você tem uma nova mensagem!"; // Oculta o conteúdo real
+                // Resto do código
             })
             .catch(error => {
                 console.error("Erro ao enviar a mensagem:", error);
                 alert("Erro ao enviar a mensagem. Tente novamente.");
             });
+            
         } else {
             alert("Não vai escrever nadinha? :(");
         }
